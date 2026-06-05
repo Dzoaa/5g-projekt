@@ -33,22 +33,11 @@
         /* Header / Hero sekcija */
         header {
             background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
-            padding: 80px 20px;
+            padding: 60px 20px;
             text-align: center;
             border-bottom: 1px solid #2e3c56;
             position: relative;
             overflow: hidden;
-        }
- 
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
-            pointer-events: none;
         }
  
         header h1 {
@@ -70,7 +59,7 @@
  
         /* Glavni sadržaj */
         .container {
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 40px auto;
             padding: 0 20px;
         }
@@ -89,16 +78,17 @@
             color: var(--primary);
         }
  
-        /* Grid za dobre i loše strane */
+        /* Grid za dobre i loše strane - Prilagođen za horizontalni prikaz */
         .grid {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: 1fr 1fr; /* Uvijek u dva stupca na desktopu i tabletima */
             gap: 30px;
         }
  
-        @media (min-width: 768px) {
+        /* Tek za čiste mobitele prelazimo u jedan stupac */
+        @media (max-width: 768px) {
             .grid {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 1fr;
             }
         }
  
@@ -109,6 +99,8 @@
             padding: 35px;
             border: 1px solid #2e3c56;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
         }
  
         .column.good {
@@ -196,8 +188,10 @@
  
         <div class="grid">
             
+            <!-- PREDNOSTI (Dobre strane) -->
             <section class="column good">
-                <h2><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                <h2>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
                     Prednosti (Dobre strane)
                 </h2>
  
@@ -208,5 +202,72 @@
  
                 <div class="item">
                     <h3>Iznimno niska latencija (kašnjenje)</h3>
-                    <p>Latencija je smanjena na svega nekoliko milisekundi. Ovo gotovo trenutačno vrijeme odziva ključno je za aplikacije u stvarnom vremenu
+                    <p>Latencija je smanjena na svega nekoliko milisekundi. Ovo gotovo trenutačno vrijeme odziva ključno je za aplikacije u stvarnom vremenu, poput udaljenih operacija u medicini, online igranja i upravljanja autonomnim automobilima.</p>
+                </div>
+ 
+                <div class="item">
+                    <h3>Veći kapacitet mreže</h3>
+                    <p>5G može podržati do milijun povezanih uređaja po kvadratnom kilometru. To rješava problem zagušenja mreže na masovnim događanjima poput koncerata ili utakmica te omogućuje stabilan rad tisućama pametnih uređaja istovremeno (IoT).</p>
+                </div>
+ 
+                <!-- NOVE DODANE TOČKE -->
+                <div class="item">
+                    <h3>Bolja energetska učinkovitost po bitu</h3>
+                    <p>Iako sami bazni uređaji troše više energije, 5G prenosi znatno veću količinu podataka po utrošenoj jedinici energije u usporedbi sa starijim generacijama mreža, što je dugoročno održivije.</p>
+                </div>
+ 
+                <div class="item">
+                    <h3>Rezanje mreže (Network Slicing)</h3>
+                    <p>Ova jedinstvena tehnologija omogućuje operatorima da unutar jedne fizičke 5G mreže kreiraju više virtualnih mreža prilagođenih specifičnim potrebama – npr. poseban stabilan kanal za hitne službe, a poseban za kućne korisnike.</p>
+                </div>
+ 
+                <div class="item">
+                    <h3>Napredak za fiksni bežični pristup (FWA)</h3>
+                    <p>U ruralnim i slabije povezanim područjima gdje je postavljanje optičkih kablova preskupo ili neizvedivo, 5G pruža kućni internet ultra visoke brzine bez potrebe za bušenjem zidova i provođenjem žica.</p>
+                </div>
+            </section>
+ 
+            <!-- NEDOSTACI (Loše strane) -->
+            <section class="column bad">
+                <h2>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    Nedostaci (Loše strane)
+                </h2>
+ 
+                <div class="item">
+                    <h3>Ograničen domet i prodiranje signala</h3>
+                    <p>Visokofrekventni valovi (milimetarski valovi) koje 5G koristi imaju vrlo kratak domet. Teže prolaze kroz fizičke prepreke poput zidova, zgrada i drveća, što zahtijeva postavljanje znatno većeg broja manjih baznih stanica.</p>
+                </div>
+ 
+                <div class="item">
+                    <h3>Visoki troškovi implementacije</h3>
+                    <p>Izgradnja 5G infrastrukture iznimno je skupa. Telekomunikacijske tvrtke moraju uložiti golema sredstva u postavljanje novih antena i optičkih kablova, što se u konačnici može odraziti i na više cijene usluga za korisnike.</p>
+                </div>
+ 
+                <div class="item">
+                    <h3>Veća potrošnja energije uređaja</h3>
+                    <p>Korištenje 5G signala na starijim ili prvim generacijama 5G pametnih telefona uzrokuje brže pražnjenje baterije zbog konstantnog pretraživanja mreže i procesiranja velike količine podataka.</p>
+                </div>
+ 
+                <div class="item">
+                    <h3>Sigurnosni rizici i privatnost</h3>
+                    <p>S obzirom na to da se na mrežu povezuje ogroman broj uređaja (od pametnih kućanskih aparata do industrijskih pogona), povećava se i površina za potencijalne kibernetičke napade. Osiguravanje takvog sustava postaje znatno kompleksnije.</p>
+                </div>
+            </section>
+ 
+        </div>
+ 
+        <section class="conclusion">
+            <h2>Zaključak</h2>
+            <p>5G tehnologija donosi neosporan napredak koji će oblikovati digitalnu budućnost i omogućiti tehnologije o kojima smo do jučer samo sanjali. Ipak, izazovi poput visoke cijene infrastrukture i tehničkih ograničenja u dometu signala znače da će potpuna i stabilna tranzicija trajati godinama. Balans između iskorištavanja potencijala i rješavanja ovih nedostataka ključ je uspjeha ove generacije mreža.</p>
+        </section>
+ 
+        <footer>
+            <p>&copy; 2026 Informatički Pregled. Sva prava pridržana.</p>
+        </footer>
+ 
+    </div>
+ 
+</body>
+</html>
  
